@@ -1,0 +1,122 @@
+﻿<Page
+    x:Class="DataClient.Views.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DataClient.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Series="using:WinRTXamlToolkit.Controls.DataVisualization.Charting"
+    xmlns:datavis="using:WinRTXamlToolkit.Controls.DataVisualization"
+    xmlns:converters="using:DataClient.Converters"
+    mc:Ignorable="d">
+    <Page.Resources>
+        <converters:VisibilityConverter x:Key="VisibilityConverter" />
+    </Page.Resources>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="wideView">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="720" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="Row0.Height" Value="*"/>
+                        <Setter Target="Row1.Height" Value="*"/>
+                        <Setter Target="Row2.Height" Value="0"/>
+                        <Setter Target="Row3.Height" Value="0"/>
+                        <Setter Target="Col1.Width" Value="*"/>
+                        <Setter Target="WeeklyInsights.(Grid.Row)" Value="1"/>
+                        <Setter Target="WeeklyInsights.(Grid.Column)" Value="1"/>
+                        <Setter Target="NumPeopleInStore.(Grid.Row)" Value="0"/>
+                        <Setter Target="NumPeopleInStore.(Grid.Column)" Value="1"/>
+                        <Setter Target="AverageInsights.(Grid.Row)" Value="1"/>
+                        <Setter Target="AverageInsights.(Grid.Column)" Value="0"/>
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <StackPanel>
+                    <TextBlock HorizontalAlignment="Center" Text="Contoso Coffee Shop"/>
+                    <TextBlock HorizontalAlignment="Center" Text="Hours of Operation - Daily from 10 AM to 10 PM"/>
+                    <TextBlock HorizontalAlignment="Center" x:Name="DateRefreshedBlock" Text="{Binding DateLastRefreshe}"/>
+                    <ProgressRing HorizontalAlignment="Center" x:Name="ProgressRing" IsActive="{Binding IsFirstLoad}"/>
+                </StackPanel>
+            </Grid>
+        <ScrollViewer Grid.Row="1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition x:Name="Row0" Height="400"/>
+                    <RowDefinition x:Name="Row1" Height="400"/>
+                    <RowDefinition x:Name="Row2" Height="400"/>
+                    <RowDefinition x:Name="Row3" Height="400"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition x:Name="Col0" Width="*"/>
+                    <ColumnDefinition x:Name="Col1" Width="0"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock x:Name="CurrentPeopleInStore" Width="75" TextWrapping="WrapWholeWords" TextAlignment="Center" Canvas.ZIndex="1" Foreground="White" FontFamily="Segoe UI" HorizontalAlignment="Center" Margin="0,0,0,40" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" Text="Current People in Store:" Visibility="{Binding IsFirstLoad, Converter={StaticResource VisibilityConverter}}"/>
+                <TextBlock x:Name="CurrentPeopleInStoreValue" Canvas.ZIndex="1" Foreground="White" FontFamily="Segoe UI Black" HorizontalAlignment="Center" Margin="0,80,0,0" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" FontSize="48" Text="{Binding NumPeopleInStore}" Visibility="{Binding IsFirstLoad, Converter={StaticResource VisibilityConverter}}"/>
+                <Image x:Name="StoreFrontLogo" Width="300" Source="../Assets/StoreFrontImage.png" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.ZIndex="0" Visibility="{Binding IsFirstLoad, Converter={StaticResource VisibilityConverter}}"></Image>
+                <Series:Chart x:Name="NumPeopleInStore"
+                          Title="Number of Customers Entering Store Yesterday"
+                          Margin="25"
+                          Grid.Row="1"
+                          Grid.Column="0"
+                          Visibility="{Binding IsFirstLoad, Converter={StaticResource VisibilityConverter}}">
+                    <Series:Chart.LegendStyle>
+                        <Style TargetType="datavis:Legend">
+                            <Setter Property="Width" Value="0"/>
+                        </Style>
+                    </Series:Chart.LegendStyle>
+                    <Series:BubbleSeries Title="Number of People in Store"
+                                   ItemsSource="{Binding HourlyInsights}"
+                                   DependentValueBinding="{Binding HourValue}"
+                                   IndependentValueBinding="{Binding Hour}"
+                                   IsSelectionEnabled="True">
+                    </Series:BubbleSeries>
+                </Series:Chart>
+                <Series:Chart x:Name="WeeklyInsights"
+                          Title="Number of Customers Per Week"
+                          Margin="25"
+                          Grid.Row="2"
+                          Grid.Column="0"
+                          Visibility="{Binding IsFirstLoad, Converter={StaticResource VisibilityConverter}}">
+                    <Series:Chart.LegendStyle>
+                        <Style TargetType="datavis:Legend">
+                            <Setter Property="Width" Value="0"/>
+                        </Style>
+                    </Series:Chart.LegendStyle>
+                    <Series:ColumnSeries Title="Number of People in Store"
+                                   ItemsSource="{Binding WeeklyInsights}"
+                                   DependentValueBinding="{Binding WeekValue}"
+                                   IndependentValueBinding="{Binding Week}"
+                                   IsSelectionEnabled="True">
+                    </Series:ColumnSeries>
+                </Series:Chart>
+                <Series:Chart x:Name="AverageInsights"
+                          Title="Average Number of Customers Per Day of Week"
+                          Margin="25"
+                          Grid.Row="3"
+                          Grid.Column="0"
+                          Visibility="{Binding IsFirstLoad, Converter={StaticResource VisibilityConverter}}">
+                    <Series:Chart.LegendStyle>
+                        <Style TargetType="datavis:Legend">
+                            <Setter Property="Width" Value="0"/>
+                        </Style>
+                    </Series:Chart.LegendStyle>
+                    <Series:BarSeries Title="Average Number of Customers Per Day of Week"
+                                   ItemsSource="{Binding AverageDailyInsights}"
+                                   DependentValueBinding="{Binding AverageDayValue}"
+                                   IndependentValueBinding="{Binding Day}"
+                                   IsSelectionEnabled="True">
+                    </Series:BarSeries>
+                </Series:Chart>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</Page>
