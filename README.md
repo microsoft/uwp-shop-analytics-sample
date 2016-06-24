@@ -9,7 +9,7 @@ This project has adopted the [Microsoft Open Source Code of Conduct](https://ope
 ###Azure Services
 In order to be able to execute the code and test the sample fully, you will need to register for the following Azure services and place the appropriate keys/URLs into the keys.resx file in the ShopAnalyticsPCL project.
 * Azure App Service - Used to host the ASP.NET Application
-* Azure DocuemtnDB Account - In addition, you will need to create a Database, collection inside the database, and a document within the collection
+* Azure DocumentDB Account - In addition, you will need to create a Database, collection inside the database, and a document within the collection
 * Azure Notification Hub and Azure Notification Hub Namespace
 
 ###IoT Hardware
