@@ -132,5 +132,14 @@ namespace ShopAnalyticsPCL.Resources {
                 return ResourceManager.GetString("NhListenConnection", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [TODO].
+        /// </summary>
+        public static string NhName {
+            get {
+                return ResourceManager.GetString("NhName", resourceCulture);
+            }
+        }
     }
 }

@@ -149,4 +149,8 @@
     <value>[TODO]</value>
     <comment>DefaultListenSharedAccessSignature key from Azure Notification Hub</comment>
   </data>
+  <data name="NhName" xml:space="preserve">
+    <value>[TODO]</value>
+    <comment>Notification Hub Name</comment>
+  </data>
 </root>
