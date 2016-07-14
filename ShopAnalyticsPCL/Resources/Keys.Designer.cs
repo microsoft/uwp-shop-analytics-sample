@@ -136,9 +136,9 @@ namespace ShopAnalyticsPCL.Resources {
         /// <summary>
         ///   Looks up a localized string similar to [TODO].
         /// </summary>
-        public static string NhName {
+        public static string NhNamespaceName {
             get {
-                return ResourceManager.GetString("NhName", resourceCulture);
+                return ResourceManager.GetString("NhNamespaceName", resourceCulture);
             }
         }
     }
