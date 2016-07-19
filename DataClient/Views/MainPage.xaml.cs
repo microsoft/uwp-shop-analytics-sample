@@ -23,7 +23,7 @@ namespace DataClient.Views
         public MainPage()
         {
             InitializeComponent();
-            hub = new NotificationHub("shopanalyticsnotificationhub",
+            hub = new NotificationHub(ShopAnalyticsPCL.Resources.Keys.NhName,
                 ShopAnalyticsPCL.Resources.Keys.NhListenConnection);
             mpvm = new MainPageViewModel();
             // Changes the UI based on first load
