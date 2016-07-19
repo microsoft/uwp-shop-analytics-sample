@@ -149,7 +149,7 @@
     <value>hc0UfF534NCsHG+BgWQVnWvL5E9eTHGDx2I3PiITtOk=</value>
     <comment>DefaultListenSharedAccessSignature key from Azure Notification Hub</comment>
   </data>
-  <data name="NhName" xml:space="preserve">
+  <data name="NhNamespaceName" xml:space="preserve">
     <value>eventshub</value>
     <comment>Notification Hub Name</comment>
   </data>

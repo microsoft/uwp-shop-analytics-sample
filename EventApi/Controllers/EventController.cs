@@ -81,7 +81,7 @@ namespace EventApi.Controllers
         {
             string windowsToastPayload;
             // Get the Notification Hubs credentials for the Mobile App.
-            string notificationHubName = Keys.NhName;
+            string notificationHubName = Keys.NhNamespaceName;
             string notificationHubConnection = Keys.NhFullConnection;
 
             // Create the notification hub client.
