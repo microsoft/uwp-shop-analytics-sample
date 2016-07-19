@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <StoreAssociation xmlns="http://schemas.microsoft.com/appx/2010/storeassociation">
-  <Publisher>CN=8614A98B-0F35-4E36-AD73-B260FED87E11</Publisher>
-  <PublisherDisplayName>diverdan</PublisherDisplayName>
+  <Publisher>CN=FD784322-3D44-4DA4-9F73-0E23D5DF0893</Publisher>
+  <PublisherDisplayName>Rido Min</PublisherDisplayName>
   <GeneratePackageHash>http://www.w3.org/2001/04/xmlenc#sha256</GeneratePackageHash>
   <SupportedLocales>
     <Language Code="af" InMinimumRequirementSet="true" />
@@ -358,28 +358,14 @@
     <Language Code="zu-za" InMinimumRequirementSet="true" />
   </SupportedLocales>
   <ProductReservedInfo>
-    <MainPackageIdentityName>31465diverdan.ShopAnalyticsDemo</MainPackageIdentityName>
+    <MainPackageIdentityName>18656RidoMin.RidoShopEvents</MainPackageIdentityName>
     <ReservedNames>
-      <ReservedName>ShopAnalyticsDemo</ReservedName>
+      <ReservedName>RidoShopEvents</ReservedName>
     </ReservedNames>
   </ProductReservedInfo>
   <AccountPackageIdentityNames>
-    <MainPackageIdentityName>31465diverdan.asdas</MainPackageIdentityName>
-    <MainPackageIdentityName>31465diverdan.ASDlkqwdlkqwdjklasdq</MainPackageIdentityName>
-    <MainPackageIdentityName>31465diverdan.BeRightThere</MainPackageIdentityName>
-    <MainPackageIdentityName>31465diverdan.CIUWPTest</MainPackageIdentityName>
-    <MainPackageIdentityName>31465diverdan.dajacotest</MainPackageIdentityName>
-    <MainPackageIdentityName>31465diverdan.DanielUnniUWPTest</MainPackageIdentityName>
-    <MainPackageIdentityName>31465diverdan.DevCompeteBakeOff</MainPackageIdentityName>
-    <MainPackageIdentityName>31465diverdan.DreamCatcher</MainPackageIdentityName>
-    <MainPackageIdentityName>31465diverdan.HockeyTest</MainPackageIdentityName>
-    <MainPackageIdentityName>31465diverdan.MyApp-Universal</MainPackageIdentityName>
-    <MainPackageIdentityName>31465diverdan.ParallaxMusicTR22</MainPackageIdentityName>
-    <MainPackageIdentityName>31465diverdan.SafeSpace</MainPackageIdentityName>
-    <MainPackageIdentityName>31465diverdan.testappname123456</MainPackageIdentityName>
-    <MainPackageIdentityName>31465diverdan.testappname1234567</MainPackageIdentityName>
-    <MainPackageIdentityName>31465diverdan.UniversalCookbook</MainPackageIdentityName>
-    <MainPackageIdentityName>31465diverdan.UWPStoreTest</MainPackageIdentityName>
+    <MainPackageIdentityName>18656RidoMin.RidoPhotos</MainPackageIdentityName>
+    <MainPackageIdentityName>18656RidoMin.WASIdentityDemo</MainPackageIdentityName>
   </AccountPackageIdentityNames>
-  <PackageInfoList LandingUrl="https://dev.windows.com/dashboard/Application?appId=9NBLGGH4X4F6" />
+  <PackageInfoList LandingUrl="https://developer.microsoft.com/dashboard/Application?appId=9NBLGGH4STGS" />
 </StoreAssociation>

@@ -118,39 +118,39 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AzureWebAppUri" xml:space="preserve">
-    <value>[TODO]</value>
+    <value>http://ridoshopserver.azurewebsites.net</value>
     <comment>URI for Azure Web App hosting the EventApi application</comment>
   </data>
   <data name="DocDbCollectionName" xml:space="preserve">
-    <value>[TODO]</value>
+    <value>events</value>
     <comment>DocumentDB collection name within the DocumentDB database</comment>
   </data>
   <data name="DocDbDocName" xml:space="preserve">
-    <value>[TODO]</value>
+    <value>eventDoc</value>
     <comment>DocumentDB document name within the DocumentDB collection</comment>
   </data>
   <data name="DocDbKey" xml:space="preserve">
-    <value>[TODO]</value>
+    <value>poZUfiYj6kq4P0YKaw1djfxRIll9kXy494xv1JS6KW5FTm0duFinBeUX6rx8Dyf34NgtjZEIhiAPYlQISKny9w==</value>
     <comment>Primary Key from Azure DocumentDB Account</comment>
   </data>
   <data name="DocDbName" xml:space="preserve">
-    <value>[TODO]</value>
+    <value>EventsDB</value>
     <comment>DocumentDB database name from Azure DocumentDB Account</comment>
   </data>
   <data name="DocDbUri" xml:space="preserve">
-    <value>[TODO]</value>
+    <value>https://ridophotos.documents.azure.com:443/</value>
     <comment>URI from Azure DocumentDB Account</comment>
   </data>
   <data name="NhFullConnection" xml:space="preserve">
-    <value>[TODO]</value>
+    <value>DniAXgy7XXHaTesc7/jul4Hp0xF6dy8u0p5dKjFwAso=</value>
     <comment>DefaultFullSharedAccessSignature key from Azure Notification Hub </comment>
   </data>
   <data name="NhListenConnection" xml:space="preserve">
-    <value>[TODO]</value>
+    <value>hc0UfF534NCsHG+BgWQVnWvL5E9eTHGDx2I3PiITtOk=</value>
     <comment>DefaultListenSharedAccessSignature key from Azure Notification Hub</comment>
   </data>
   <data name="NhName" xml:space="preserve">
-    <value>[TODO]</value>
+    <value>eventshub</value>
     <comment>Notification Hub Name</comment>
   </data>
 </root>
