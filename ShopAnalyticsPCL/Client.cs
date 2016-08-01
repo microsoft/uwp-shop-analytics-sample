@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using ShopAnalyticsPCL.Models;
+﻿using ShopAnalyticsPCL.Models;
 using ShopAnalyticsPCL.Resources;
 using System;
 using System.Collections.Generic;
@@ -21,19 +20,18 @@ namespace ShopAnalyticsPCL
                 EventType = eventType,
                 EventTime = DateTime.Now
             };
-
-            HttpContent contentPost = new StringContent(newEvent.ToString(),
-                                                        System.Text.Encoding.UTF8, 
-                                                        "application/json");
-
-            HttpResponseMessage message = await http.PostAsync("api/event", contentPost);
+            
+            HttpResponseMessage message = await http
+                .PostAsync("api/event", 
+                    new StringContent(newEvent.ToJson(),
+                            Encoding.UTF8,"application/json"));
         }
 
         public async Task<IList<TriggeredEvent>> ReadAllEvents()
         {
             var response = await http.GetAsync("api/event");
             var content = await response.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<IList<TriggeredEvent>>(content);
+            return TriggeredEvent.FromJson(content);
         }
     }
 }

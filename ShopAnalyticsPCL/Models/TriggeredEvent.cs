@@ -1,5 +1,6 @@
 ﻿using System;
 using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace ShopAnalyticsPCL.Models
 {
@@ -16,9 +17,14 @@ namespace ShopAnalyticsPCL.Models
         public DateTime EventTime { get; set; }
 
 
-        public override string ToString()
+        public string ToJson()
         {
             return JsonConvert.SerializeObject(this);
+        }
+
+        public static IList<TriggeredEvent> FromJson(string content)
+        {
+            return JsonConvert.DeserializeObject<IList<TriggeredEvent>>(content);
         }
     }
 }
