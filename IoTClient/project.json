@@ -1,8 +1,6 @@
 ﻿{
   "dependencies": {
-    "Microsoft.Net.Http": "2.2.29",
-    "Microsoft.NETCore.UniversalWindowsPlatform": "5.0.0",
-    "WindowsAzure.Messaging.Managed": "0.1.7.9"
+    "Microsoft.NETCore.UniversalWindowsPlatform": "5.0.0"
   },
   "frameworks": {
     "uap10.0": {}
