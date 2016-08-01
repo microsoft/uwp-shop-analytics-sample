@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
 using ShopAnalyticsPCL;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace UWPTests
 {
@@ -25,7 +26,7 @@ namespace UWPTests
             Assert.IsNotNull(events);
             foreach (var te in events)
             {
-                System.Diagnostics.Debug.WriteLine($"type {te.EventType} on {te.EventTime.ToString()}");
+                Debug.WriteLine($"type {te.EventType} on {te.EventTime.ToString()}");
             }
         }
     }

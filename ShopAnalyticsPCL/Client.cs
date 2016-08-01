@@ -22,7 +22,10 @@ namespace ShopAnalyticsPCL
                 EventTime = DateTime.Now
             };
 
-            HttpContent contentPost = new StringContent(JsonConvert.SerializeObject(newEvent), System.Text.Encoding.UTF8, "application/json");
+            HttpContent contentPost = new StringContent(newEvent.ToString(),
+                                                        System.Text.Encoding.UTF8, 
+                                                        "application/json");
+
             HttpResponseMessage message = await http.PostAsync("api/event", contentPost);
         }
 
