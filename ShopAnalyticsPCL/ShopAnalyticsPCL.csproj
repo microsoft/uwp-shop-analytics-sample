@@ -39,6 +39,7 @@
     <!-- A reference to the entire .NET Framework is automatically included -->
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Client.cs" />
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\AverageDailyData.cs" />
     <Compile Include="Models\TransformedData.cs" />
