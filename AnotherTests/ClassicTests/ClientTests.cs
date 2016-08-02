@@ -12,8 +12,7 @@ namespace ClassicTests
         [TestMethod]
         public async Task CreateEvent()
         {
-            await client.CreateEvent(true);
-            await client.CreateEvent(false);
+            await client.CreateEvent(true);            
         }
 
 

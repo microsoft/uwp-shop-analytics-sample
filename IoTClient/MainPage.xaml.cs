@@ -4,7 +4,6 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using ShopAnalyticsPCL.Models;
 using System.Net.Http;
-using Newtonsoft.Json;
 using ShopAnalyticsPCL.Resources;
 using ShopAnalyticsPCL;
 

@@ -52,6 +52,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Keys.resx</DependentUpon>
     </Compile>
+    <Compile Include="Serializer.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Keys.resx">

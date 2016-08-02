@@ -20,10 +20,12 @@ namespace ShopAnalyticsPCL
                 EventType = eventType,
                 EventTime = DateTime.Now
             };
+
+            var json = newEvent.ToJson();
             
             HttpResponseMessage message = await http
                 .PostAsync("api/event", 
-                    new StringContent(newEvent.ToJson(),
+                    new StringContent(json,
                             Encoding.UTF8,"application/json"));
         }
 
@@ -31,7 +33,8 @@ namespace ShopAnalyticsPCL
         {
             var response = await http.GetAsync("api/event");
             var content = await response.Content.ReadAsStringAsync();
-            return TriggeredEvent.FromJson(content);
+            //return TriggeredEvent.FromJson(content);
+            return null;
         }
     }
 }
