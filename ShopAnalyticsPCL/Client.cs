@@ -33,8 +33,8 @@ namespace ShopAnalyticsPCL
         {
             var response = await http.GetAsync("api/event");
             var content = await response.Content.ReadAsStringAsync();
-            //return TriggeredEvent.FromJson(content);
-            return null;
+          
+            return Serializer<IList<TriggeredEvent>>.FromJson(content);
         }
     }
 }
