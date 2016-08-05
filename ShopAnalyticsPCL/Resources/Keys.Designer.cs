@@ -62,7 +62,7 @@ namespace ShopAnalyticsPCL.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to [TODO].
+        ///   Looks up a localized string similar to http://ridoshopserver.azurewebsites.net.
         /// </summary>
         public static string AzureWebAppUri {
             get {
@@ -71,7 +71,7 @@ namespace ShopAnalyticsPCL.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to [TODO].
+        ///   Looks up a localized string similar to events.
         /// </summary>
         public static string DocDbCollectionName {
             get {
@@ -80,7 +80,7 @@ namespace ShopAnalyticsPCL.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to [TODO].
+        ///   Looks up a localized string similar to eventDoc.
         /// </summary>
         public static string DocDbDocName {
             get {
@@ -89,7 +89,7 @@ namespace ShopAnalyticsPCL.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to [TODO].
+        ///   Looks up a localized string similar to poZUfiYj6kq4P0YKaw1djfxRIll9kXy494xv1JS6KW5FTm0duFinBeUX6rx8Dyf34NgtjZEIhiAPYlQISKny9w==.
         /// </summary>
         public static string DocDbKey {
             get {
@@ -98,7 +98,7 @@ namespace ShopAnalyticsPCL.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to [TODO].
+        ///   Looks up a localized string similar to EventsDB.
         /// </summary>
         public static string DocDbName {
             get {
@@ -107,7 +107,7 @@ namespace ShopAnalyticsPCL.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to [TODO].
+        ///   Looks up a localized string similar to https://ridophotos.documents.azure.com:443/.
         /// </summary>
         public static string DocDbUri {
             get {
@@ -116,7 +116,7 @@ namespace ShopAnalyticsPCL.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to [TODO].
+        ///   Looks up a localized string similar to Endpoint=sb://photoseventsnh.servicebus.windows.net/;SharedAccessKeyName=DefaultFullSharedAccessSignature;SharedAccessKey=DniAXgy7XXHaTesc7/jul4Hp0xF6dy8u0p5dKjFwAso=.
         /// </summary>
         public static string NhFullConnection {
             get {
@@ -125,7 +125,7 @@ namespace ShopAnalyticsPCL.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to [TODO].
+        ///   Looks up a localized string similar to Endpoint=sb://photoseventsnh.servicebus.windows.net/;SharedAccessKeyName=DefaultListenSharedAccessSignature;SharedAccessKey=hc0UfF534NCsHG+BgWQVnWvL5E9eTHGDx2I3PiITtOk=.
         /// </summary>
         public static string NhListenConnection {
             get {
@@ -134,7 +134,7 @@ namespace ShopAnalyticsPCL.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to [TODO].
+        ///   Looks up a localized string similar to eventshub.
         /// </summary>
         public static string NhName {
             get {

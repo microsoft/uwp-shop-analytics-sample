@@ -1,13 +1,18 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization.Json;
 
 namespace ShopAnalyticsPCL.Models
 {
     public class TriggeredEvent
     {
+        public string id { get; set; }
+
         /// <summary>
         /// Represents the event type for the IoT Device - true means someone has entered; false means someone has exited
         /// </summary>
+        /// 
         public bool EventType { get; set; }
 
         /// <summary>
@@ -15,10 +20,16 @@ namespace ShopAnalyticsPCL.Models
         /// </summary>
         public DateTime EventTime { get; set; }
 
+        
 
-        public override string ToString()
+        public string ToJson()
         {
-            return JsonConvert.SerializeObject(this);
+            return Serializer<TriggeredEvent>.ToJson(this);            
+        }
+
+        public static TriggeredEvent FromJson(string content)
+        {
+            return Serializer<TriggeredEvent>.FromJson(content);            
         }
     }
 }

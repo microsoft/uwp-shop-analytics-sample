@@ -12,6 +12,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using ShopAnalyticsPCL.Models;
 using ShopAnalyticsPCL.Resources;
+using EventApi.DocDb;
 
 namespace EventApi.Controllers
 {
@@ -27,8 +28,7 @@ namespace EventApi.Controllers
 
         private readonly string docDbKey = Keys.DocDbKey;
 
-        private DocumentClient documentClient;
-
+        private readonly TriggeredEventRepository repository = new TriggeredEventRepository(new Uri(Keys.DocDbUri), Keys.DocDbKey);
 
         // GET: api/Event/5
         /// <summary>
@@ -37,22 +37,7 @@ namespace EventApi.Controllers
         /// <returns></returns>
         public async Task<IList<TriggeredEvent>> Get()
         {
-            // Returns the document object response from DocDB - response.Resource is the document contents
-            var response = await GetDocResponse();
-            var readDocument = response.Resource;
-            var documentContents = JObject.Parse(readDocument.ToString());
-            IList<JToken> records = documentContents["records"]?.Children().ToList();
-            IList<TriggeredEvent> triggeredEvents = new List<TriggeredEvent>();
-            if (records != null)
-            {
-                foreach (var record in records)
-                {
-                    var triggeredEvent = JsonConvert.DeserializeObject<TriggeredEvent>(record.ToString());
-                    triggeredEvents.Add(triggeredEvent);
-                }
-            }
-            //Returns ALL events that have been recorded
-            return triggeredEvents;
+            return await repository.GetAll();   
         }
 
 
@@ -65,13 +50,8 @@ namespace EventApi.Controllers
         [HttpPost]
         public async Task<HttpResponseMessage> Post(TriggeredEvent newEvent)
         {
-            var collectionLink = UriFactory.CreateDocumentCollectionUri(databaseName, collectionName);
-            var response = await GetDocResponse();
-            var upserted = response.Resource;
-            var events = upserted.GetPropertyValue<List<TriggeredEvent>>("records");
-            events.Add(newEvent);
-            upserted.SetPropertyValue("records", events);
-            response = await documentClient.UpsertDocumentAsync(collectionLink, upserted);
+            await repository.Add(newEvent);
+            
             var pushNotificationResponse = await TriggerPushNotification(newEvent.EventType);
 
             return Request.CreateResponse(HttpStatusCode.OK, newEvent);
@@ -101,20 +81,6 @@ namespace EventApi.Controllers
             }
 
             return await hub.SendWindowsNativeNotificationAsync(windowsToastPayload);
-        }
-
-        /// <summary>
-        ///     Returns document used as the DB for this app
-        /// </summary>
-        /// <param name="endpointURI"></param>
-        /// <param name="key"></param>
-        /// <returns></returns>
-        private async Task<ResourceResponse<Document>> GetDocResponse()
-        {
-            documentClient = new DocumentClient(new Uri(endpointUri), docDbKey);
-            var documentLink = UriFactory.CreateDocumentUri(databaseName, collectionName, documentName);
-            var response = await documentClient.ReadDocumentAsync(documentLink);
-            return response;
-        }
+        }        
     }
 }

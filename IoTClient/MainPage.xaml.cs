@@ -4,8 +4,8 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using ShopAnalyticsPCL.Models;
 using System.Net.Http;
-using Newtonsoft.Json;
 using ShopAnalyticsPCL.Resources;
+using ShopAnalyticsPCL;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -46,7 +46,7 @@ namespace IoTClient
 
 
         // Used to submit data to asp.net endpoint 
-        private readonly HttpClient client;
+        private readonly Client client;
 
         public MainPage()
         {
@@ -61,7 +61,7 @@ namespace IoTClient
             InitGpio();
 
             // HttpClient to talk to web API
-            client = new HttpClient {BaseAddress = new Uri(baseuri)};
+            client = new Client();
         }
 
         /// <summary>
@@ -185,15 +185,8 @@ namespace IoTClient
         /// </summary>
         private async void CreateEvent(bool eventType)
         {
-            Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () => GpioStatus.Text = eventType.ToString());
-            var newEvent = new TriggeredEvent
-            {
-                EventType = eventType,
-                EventTime = DateTime.Now
-            };
-
-            HttpContent contentPost = new StringContent(JsonConvert.SerializeObject(newEvent), System.Text.Encoding.UTF8, "application/json");
-            HttpResponseMessage message = await client.PostAsync("api/event", contentPost);
+            Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () => GpioStatus.Text = eventType.ToString());            
+            await client.CreateEvent(eventType);            
         }
     }
 }
