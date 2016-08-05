@@ -116,7 +116,7 @@ namespace ShopAnalyticsPCL.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to DniAXgy7XXHaTesc7/jul4Hp0xF6dy8u0p5dKjFwAso=.
+        ///   Looks up a localized string similar to Endpoint=sb://photoseventsnh.servicebus.windows.net/;SharedAccessKeyName=DefaultFullSharedAccessSignature;SharedAccessKey=DniAXgy7XXHaTesc7/jul4Hp0xF6dy8u0p5dKjFwAso=.
         /// </summary>
         public static string NhFullConnection {
             get {
@@ -125,7 +125,7 @@ namespace ShopAnalyticsPCL.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to hc0UfF534NCsHG+BgWQVnWvL5E9eTHGDx2I3PiITtOk=.
+        ///   Looks up a localized string similar to Endpoint=sb://photoseventsnh.servicebus.windows.net/;SharedAccessKeyName=DefaultListenSharedAccessSignature;SharedAccessKey=hc0UfF534NCsHG+BgWQVnWvL5E9eTHGDx2I3PiITtOk=.
         /// </summary>
         public static string NhListenConnection {
             get {

@@ -16,7 +16,7 @@ namespace DataClient.ViewModels
         /// <returns></returns>
         public static async Task<ObservableCollection<TriggeredEvent>> RefreshRawData()
         {
-            var client = new HttpClient {BaseAddress = new Uri("http://shopanalyticsdemo.azurewebsites.net/")};
+            var client = new HttpClient {BaseAddress = new Uri(ShopAnalyticsPCL.Resources.Keys.AzureWebAppUri)};
             var response = await client.GetAsync("api/event");
             var content = await response.Content.ReadAsStringAsync();
             return JsonConvert.DeserializeObject<ObservableCollection<TriggeredEvent>>(content);

@@ -18,7 +18,7 @@ namespace ShopAnalyticsPCL
             var newEvent = new TriggeredEvent
             {
                 EventType = eventType,
-                EventTime = DateTime.Now
+                EventTime = DateTime.Now.AddDays(-1)
             };
 
             var json = newEvent.ToJson();
