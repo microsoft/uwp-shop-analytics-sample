@@ -5,7 +5,7 @@ This project has adopted the [Microsoft Open Source Code of Conduct](https://ope
 This code base is changing and improving over time. For a list of improvements that we want to make, check out the [Future](https://github.com/Microsoft/uwp-shop-analytics-sample/milestone/1) milestone under issues. Feel free to fork the code, fix one of the "issues", and submit a Pull Request!
 
 ##Getting Started
-*More detailed getting start instructions to follow soon*
+Check out the [Wiki](https://github.com/Microsoft/uwp-shop-analytics-sample/wiki) for more information! 
 
 ###Azure Services
 In order to be able to execute the code and test the sample fully, you will need to register for the following Azure services and place the appropriate keys/URLs into the keys.resx file in the ShopAnalyticsPCL project.
