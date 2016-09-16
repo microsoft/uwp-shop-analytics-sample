@@ -45,18 +45,18 @@ namespace IoTClient
         private int timesTicked = 0;
 
 
+
         // Used to submit data to asp.net endpoint 
         private readonly HttpClient client;
 
         public MainPage()
         {
-            this.InitializeComponent();
 
+            this.InitializeComponent();
             // If 500 seconds passes between one sensor being triggered and the other, the state is reset
             // To prevent noise / false fires from mistakenly determining entry or exit
             timer = new DispatcherTimer {Interval = TimeSpan.FromMilliseconds(RefreshTimer)};
             timer.Tick += Timer_Tick;
-
 
             InitGpio();
 
@@ -75,6 +75,10 @@ namespace IoTClient
             if (gpio == null)
             {
                 GpioStatus.Text = "There is no GPIO controller on this device.";
+
+                // Enable buttons to simulate the enter and entrance events on a non-IoT device
+                EnterButton.Visibility = ExitButton.Visibility = Visibility.Visible;
+
                 return;
             }
 
@@ -194,6 +198,20 @@ namespace IoTClient
 
             HttpContent contentPost = new StringContent(JsonConvert.SerializeObject(newEvent), System.Text.Encoding.UTF8, "application/json");
             HttpResponseMessage message = await client.PostAsync("api/event", contentPost);
+        }
+
+
+        /// <summary>
+        /// The following two methods are used to simulate enter and exit events if you do not have an IoT device handy. Simply run the app on desktop and you can click the buttons.
+        /// </summary>
+        private void EnterButton_Click(object sender, RoutedEventArgs e)
+        {
+            CreateEvent(true);
+        }
+
+        private void ExitButton_Click(object sender, RoutedEventArgs e)
+        {
+            CreateEvent(false);
         }
     }
 }
