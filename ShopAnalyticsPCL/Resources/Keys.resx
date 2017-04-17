@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AzureWebAppUri" xml:space="preserve">
-    <value>http://ridoshopserver.azurewebsites.net</value>
+    <value>http://ridoshop.azurewebsites.net</value>
     <comment>URI for Azure Web App hosting the EventApi application</comment>
   </data>
   <data name="DocDbCollectionName" xml:space="preserve">
@@ -130,7 +130,7 @@
     <comment>DocumentDB document name within the DocumentDB collection</comment>
   </data>
   <data name="DocDbKey" xml:space="preserve">
-    <value>poZUfiYj6kq4P0YKaw1djfxRIll9kXy494xv1JS6KW5FTm0duFinBeUX6rx8Dyf34NgtjZEIhiAPYlQISKny9w==</value>
+    <value>20ySChTRW4mVpQEb5aP3Oy3Nxvxiph0HH0EoE6hDA0vRG7XPuwcPaIclOQX5Gmh15afj7nTcNxmAlAD0mxTOzw==</value>
     <comment>Primary Key from Azure DocumentDB Account</comment>
   </data>
   <data name="DocDbName" xml:space="preserve">
@@ -138,7 +138,7 @@
     <comment>DocumentDB database name from Azure DocumentDB Account</comment>
   </data>
   <data name="DocDbUri" xml:space="preserve">
-    <value>https://ridophotos.documents.azure.com:443/</value>
+    <value>https://ridoshopdb.documents.azure.com:443/</value>
     <comment>URI from Azure DocumentDB Account</comment>
   </data>
   <data name="NhFullConnection" xml:space="preserve">
