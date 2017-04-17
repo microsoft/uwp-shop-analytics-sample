@@ -62,7 +62,7 @@ namespace ShopAnalyticsPCL.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to http://ridoshopserver.azurewebsites.net.
+        ///   Looks up a localized string similar to http://ridoshop.azurewebsites.net.
         /// </summary>
         public static string AzureWebAppUri {
             get {
@@ -89,7 +89,7 @@ namespace ShopAnalyticsPCL.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to poZUfiYj6kq4P0YKaw1djfxRIll9kXy494xv1JS6KW5FTm0duFinBeUX6rx8Dyf34NgtjZEIhiAPYlQISKny9w==.
+        ///   Looks up a localized string similar to 20ySChTRW4mVpQEb5aP3Oy3Nxvxiph0HH0EoE6hDA0vRG7XPuwcPaIclOQX5Gmh15afj7nTcNxmAlAD0mxTOzw==.
         /// </summary>
         public static string DocDbKey {
             get {
@@ -107,7 +107,7 @@ namespace ShopAnalyticsPCL.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://ridophotos.documents.azure.com:443/.
+        ///   Looks up a localized string similar to https://ridoshopdb.documents.azure.com:443/.
         /// </summary>
         public static string DocDbUri {
             get {

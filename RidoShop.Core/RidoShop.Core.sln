@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopEvents", "ShopEvents\ShopEvents.csproj", "{CA315B3D-474F-41FE-880C-46382E2201B5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RidoShop.xTests", "RidoShop.xTests\RidoShop.xTests.csproj", "{F74EE345-F56D-4B43-BA59-01B791DD62DB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CA315B3D-474F-41FE-880C-46382E2201B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA315B3D-474F-41FE-880C-46382E2201B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA315B3D-474F-41FE-880C-46382E2201B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA315B3D-474F-41FE-880C-46382E2201B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F74EE345-F56D-4B43-BA59-01B791DD62DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F74EE345-F56D-4B43-BA59-01B791DD62DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F74EE345-F56D-4B43-BA59-01B791DD62DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F74EE345-F56D-4B43-BA59-01B791DD62DB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
