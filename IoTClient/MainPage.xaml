@@ -8,6 +8,8 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="GpioStatus" FontSize="72"/>
+        <Button x:Name="EnterButton" Content="Enter Event" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,200,200" Width="150" Height="50" FontSize="24" Visibility="Collapsed" Click="EnterButton_Click"/>
+        <Button x:Name="ExitButton" Content="Exit Event" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="200,0,0,200" Width="150" Height="50" FontSize="24" Visibility="Collapsed" Click="ExitButton_Click"/>
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="GpioStatus" FontSize="40"/>
     </Grid>
 </Page>

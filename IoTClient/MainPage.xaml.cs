@@ -4,8 +4,8 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using ShopAnalyticsPCL.Models;
 using System.Net.Http;
-using Newtonsoft.Json;
 using ShopAnalyticsPCL.Resources;
+using ShopAnalyticsPCL;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -45,23 +45,23 @@ namespace IoTClient
         private int timesTicked = 0;
 
 
+
         // Used to submit data to asp.net endpoint 
-        private readonly HttpClient client;
+        private readonly Client client;
 
         public MainPage()
         {
-            this.InitializeComponent();
 
+            this.InitializeComponent();
             // If 500 seconds passes between one sensor being triggered and the other, the state is reset
             // To prevent noise / false fires from mistakenly determining entry or exit
             timer = new DispatcherTimer {Interval = TimeSpan.FromMilliseconds(RefreshTimer)};
             timer.Tick += Timer_Tick;
 
-
             InitGpio();
 
             // HttpClient to talk to web API
-            client = new HttpClient {BaseAddress = new Uri(baseuri)};
+            client = new Client();
         }
 
         /// <summary>
@@ -75,6 +75,10 @@ namespace IoTClient
             if (gpio == null)
             {
                 GpioStatus.Text = "There is no GPIO controller on this device.";
+
+                // Enable buttons to simulate the enter and entrance events on a non-IoT device
+                EnterButton.Visibility = ExitButton.Visibility = Visibility.Visible;
+
                 return;
             }
 
@@ -185,15 +189,22 @@ namespace IoTClient
         /// </summary>
         private async void CreateEvent(bool eventType)
         {
-            Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () => GpioStatus.Text = eventType.ToString());
-            var newEvent = new TriggeredEvent
-            {
-                EventType = eventType,
-                EventTime = DateTime.Now
-            };
+            Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () => GpioStatus.Text = eventType.ToString());            
+            await client.CreateEvent(eventType);            
+        }
 
-            HttpContent contentPost = new StringContent(JsonConvert.SerializeObject(newEvent), System.Text.Encoding.UTF8, "application/json");
-            HttpResponseMessage message = await client.PostAsync("api/event", contentPost);
+
+        /// <summary>
+        /// The following two methods are used to simulate enter and exit events if you do not have an IoT device handy. Simply run the app on desktop and you can click the buttons.
+        /// </summary>
+        private void EnterButton_Click(object sender, RoutedEventArgs e)
+        {
+            CreateEvent(true);
+        }
+
+        private void ExitButton_Click(object sender, RoutedEventArgs e)
+        {
+            CreateEvent(false);
         }
     }
 }
