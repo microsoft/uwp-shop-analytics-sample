@@ -13,7 +13,8 @@ namespace ClassicTests
     public class RepoTests
     {
 
-        TriggeredEventRepository r = new TriggeredEventRepository(new Uri("https://ridophotos.documents.azure.com:443/"), "poZUfiYj6kq4P0YKaw1djfxRIll9kXy494xv1JS6KW5FTm0duFinBeUX6rx8Dyf34NgtjZEIhiAPYlQISKny9w==");
+        TriggeredEventRepository r = new TriggeredEventRepository(new Uri("https://ridoshopdb.documents.azure.com:443/"),
+            "20ySChTRW4mVpQEb5aP3Oy3Nxvxiph0HH0EoE6hDA0vRG7XPuwcPaIclOQX5Gmh15afj7nTcNxmAlAD0mxTOzw==");
 
         [TestMethod]
         public async Task AddAndGet()
