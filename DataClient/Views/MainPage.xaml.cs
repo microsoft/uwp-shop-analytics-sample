@@ -54,5 +54,10 @@ namespace DataClient.Views
                 }
                 );
         }
+
+        private async void Button_Click(object sender, RoutedEventArgs e)
+        {
+            await mpvm.RefreshTheData();
+        }
     }
 }

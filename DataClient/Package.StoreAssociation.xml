@@ -364,8 +364,18 @@
     </ReservedNames>
   </ProductReservedInfo>
   <AccountPackageIdentityNames>
+    <MainPackageIdentityName>18656RidoMin.BackToTheFuture</MainPackageIdentityName>
+    <MainPackageIdentityName>18656RidoMin.MyWinFormsApp</MainPackageIdentityName>
+    <MainPackageIdentityName>18656RidoMin.NuGetPackageExplorer</MainPackageIdentityName>
+    <MainPackageIdentityName>18656RidoMin.PhotoStoreDemo</MainPackageIdentityName>
+    <MainPackageIdentityName>18656RidoMin.RidoBuildsDemos</MainPackageIdentityName>
+    <MainPackageIdentityName>18656RidoMin.RidoDBStep1</MainPackageIdentityName>
+    <MainPackageIdentityName>18656RidoMin.RidoDBStep2</MainPackageIdentityName>
+    <MainPackageIdentityName>18656RidoMin.RidoDBStep3</MainPackageIdentityName>
+    <MainPackageIdentityName>18656RidoMin.RidoDBStep4</MainPackageIdentityName>
     <MainPackageIdentityName>18656RidoMin.RidoPhotos</MainPackageIdentityName>
-    <MainPackageIdentityName>18656RidoMin.WASIdentityDemo</MainPackageIdentityName>
+    <MainPackageIdentityName>18656RidoMin.RidoUWPDemos</MainPackageIdentityName>
+    <MainPackageIdentityName>18656RidoMin.SDKSxS</MainPackageIdentityName>
   </AccountPackageIdentityNames>
   <PackageInfoList LandingUrl="https://developer.microsoft.com/dashboard/Application?appId=9NBLGGH4STGS" />
 </StoreAssociation>

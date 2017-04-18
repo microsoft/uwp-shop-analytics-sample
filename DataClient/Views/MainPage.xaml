@@ -59,9 +59,23 @@
                     <ColumnDefinition x:Name="Col0" Width="*"/>
                     <ColumnDefinition x:Name="Col1" Width="0"/>
                 </Grid.ColumnDefinitions>
-                <TextBlock x:Name="CurrentPeopleInStore" Width="75" TextWrapping="WrapWholeWords" TextAlignment="Center" Canvas.ZIndex="1" Foreground="White" FontFamily="Segoe UI" HorizontalAlignment="Center" Margin="0,0,0,40" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" Text="Current People in Store:" Visibility="{Binding IsFirstLoad, Converter={StaticResource VisibilityConverter}}"/>
-                <TextBlock x:Name="CurrentPeopleInStoreValue" Canvas.ZIndex="1" Foreground="White" FontFamily="Segoe UI Black" HorizontalAlignment="Center" Margin="0,80,0,0" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" FontSize="48" Text="{Binding NumPeopleInStore}" Visibility="{Binding IsFirstLoad, Converter={StaticResource VisibilityConverter}}"/>
-                <Image x:Name="StoreFrontLogo" Width="300" Source="../Assets/StoreFrontImage.png" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.ZIndex="0" Visibility="{Binding IsFirstLoad, Converter={StaticResource VisibilityConverter}}"></Image>
+                <TextBlock x:Name="CurrentPeopleInStore" Width="75" TextWrapping="WrapWholeWords" 
+                           TextAlignment="Center" Canvas.ZIndex="1" Foreground="White" 
+                           FontFamily="Segoe UI" HorizontalAlignment="Center" Margin="0,-80,0,00" 
+                           VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" Text="Current People in Store:" 
+                           Visibility="{Binding IsFirstLoad, Converter={StaticResource VisibilityConverter}}"/>
+                <TextBlock x:Name="CurrentPeopleInStoreValue" Canvas.ZIndex="1" Foreground="White" 
+                           FontFamily="Segoe UI Black" HorizontalAlignment="Center" Margin="0,20,0,0" 
+                           VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" FontSize="48" 
+                           Text="{Binding NumPeopleInStore}" 
+                           Visibility="{Binding IsFirstLoad, Converter={StaticResource VisibilityConverter}}"/>
+                <StackPanel Grid.Row="0" Grid.Column="0">
+                <Image x:Name="StoreFrontLogo" Width="300" Source="../Assets/StoreFrontImage.png" 
+                        HorizontalAlignment="Center" VerticalAlignment="Center" 
+                       Canvas.ZIndex="0" 
+                       Visibility="{Binding IsFirstLoad, Converter={StaticResource VisibilityConverter}}" />
+                    <Button Click="Button_Click" Content="Refresh" HorizontalAlignment="Center" Margin="5" />
+                </StackPanel>
                 <Series:Chart x:Name="NumPeopleInStore"
                           Title="Number of Customers Entering Store Yesterday"
                           Margin="25"

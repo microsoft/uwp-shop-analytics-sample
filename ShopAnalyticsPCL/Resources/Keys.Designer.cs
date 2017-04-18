@@ -141,5 +141,14 @@ namespace ShopAnalyticsPCL.Resources {
                 return ResourceManager.GetString("NhName", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to eventshub.
+        /// </summary>
+        public static string NhNamespaceName {
+            get {
+                return ResourceManager.GetString("NhNamespaceName", resourceCulture);
+            }
+        }
     }
 }

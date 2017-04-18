@@ -12,8 +12,9 @@ namespace RidoShop.xTests
         [Fact]
         public async Task CreateEvent()
         {
+            //await client.CreateEvent(false);
             await client.CreateEvent(true);
-            await client.CreateEvent(false);
+            //await client.CreateEvent(false);
         }
         [Fact]
         public async Task ReadAll()

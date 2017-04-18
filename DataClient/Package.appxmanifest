@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
-  <Identity Name="18656RidoMin.RidoShopEvents" Publisher="CN=UWPDemos" Version="1.1.0.0" />
-  <mp:PhoneIdentity PhoneProductId="38ead606-89f9-40ad-b1e6-7c705856d656" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
+  <Identity Name="18656RidoMin.RidoShopEvents" Publisher="CN=FD784322-3D44-4DA4-9F73-0E23D5DF0893" Version="1.1.1.0" />
+  <mp:PhoneIdentity PhoneProductId="1543fc2f-a897-4c5a-bd17-30371bc5396b" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>RidoShopEvents</DisplayName>
     <PublisherDisplayName>Rido Min</PublisherDisplayName>
