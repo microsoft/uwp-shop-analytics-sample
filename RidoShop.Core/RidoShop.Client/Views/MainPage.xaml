@@ -25,6 +25,7 @@
             Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
             <!--The SystemControlPageBackgroundChromeLowBrush background represents where you should place your content. 
                 Place your content here.-->
+            <TextBlock Text="{Binding NumItems}" FontSize="22" />
         </Grid>
     
         <!--  Adaptive triggers  -->

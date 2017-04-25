@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:model="using:RidoShop.Client.Models"
+    xmlns:model="using:ShopEvents.Models"
     xmlns:views="using:RidoShop.Client.Views"
     xmlns:ic="using:Microsoft.Xaml.Interactions.Core"
     xmlns:i="using:Microsoft.Xaml.Interactivity"
@@ -15,7 +15,7 @@
         </TransitionCollection>
     </Page.Transitions>
     <Page.Resources>
-        <DataTemplate x:Key="MasterListViewItemTemplate" x:DataType="model:SampleModel">
+        <DataTemplate x:Key="MasterListViewItemTemplate" x:DataType="model:TriggeredEvent">
             <Grid Margin="12,12,12,12">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
@@ -23,13 +23,13 @@
                 </Grid.RowDefinitions>
 
                 <TextBlock 
-                    Text="{x:Bind Title}" 
+                    Text="{x:Bind EventType}" 
                     FontSize="16" FontWeight="SemiBold" TextTrimming="CharacterEllipsis" TextWrapping="NoWrap"/>
 
                 <TextBlock
                     Grid.Row="1"
                     Opacity="0.6"
-                    Text="{x:Bind Description}"
+                    Text="{x:Bind EventTime}"
                     FontSize="16" FontWeight="Normal" TextTrimming="CharacterEllipsis" TextWrapping="NoWrap"/>
             </Grid>
         </DataTemplate>
@@ -69,7 +69,9 @@
                 x:Name="Title"
                 x:Uid="MasterDetailPage_Title"
                 FontSize="28" FontWeight="SemiLight" TextTrimming="CharacterEllipsis" TextWrapping="NoWrap" VerticalAlignment="Center"
-                Margin="0,0,12,7"/>
+                Margin="60,0,12,7"/>
+
+            <TextBlock Text="{x:Bind ViewModel.TotalItems, Mode=OneWay}" FontSize="33" />
 
             <!--The SystemControlPageBackgroundChromeLowBrush background represents where you should place your master content.-->
             <ListView

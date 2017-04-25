@@ -2,10 +2,10 @@ using System;
 using System.Windows.Input;
 
 using RidoShop.Client.Helpers;
-using RidoShop.Client.Models;
 using RidoShop.Client.Services;
 
 using Windows.UI.Xaml;
+using ShopEvents.Models;
 
 namespace RidoShop.Client.ViewModels
 {
@@ -16,8 +16,8 @@ namespace RidoShop.Client.ViewModels
 
         public ICommand StateChangedCommand { get; private set; }
 
-        private SampleModel _item;
-        public SampleModel Item
+        private TriggeredEvent _item;
+        public TriggeredEvent Item
         {
             get { return _item; }
             set { Set(ref _item, value); }

@@ -30,7 +30,7 @@ namespace RidoShop.Client.Services
             {
                 System.Diagnostics.Debug.WriteLine(result.RegistrationId);
             }
-
+            
             // You can also send push notifications from Windows Developer Center targeting your app consumers
             // Documentation: https://docs.microsoft.com/windows/uwp/publish/send-push-notifications-to-your-apps-customers
         }

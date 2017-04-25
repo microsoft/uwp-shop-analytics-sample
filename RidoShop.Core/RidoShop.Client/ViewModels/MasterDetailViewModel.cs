@@ -5,11 +5,11 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 
 using RidoShop.Client.Helpers;
-using RidoShop.Client.Models;
 using RidoShop.Client.Services;
 
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using ShopEvents.Models;
 
 namespace RidoShop.Client.ViewModels
 {
@@ -20,17 +20,23 @@ namespace RidoShop.Client.ViewModels
 
         private VisualState _currentState;
 
-        private SampleModel _selected;
-        public SampleModel Selected
+        private TriggeredEvent _selected;
+        public TriggeredEvent Selected
         {
             get { return _selected; }
             set { Set(ref _selected, value); }
         }
 
+        private string _totalItems;
+        public string TotalItems {
+            get { return _totalItems; }
+            set { Set(ref _totalItems, value); }
+         }
+
         public ICommand ItemClickCommand { get; private set; }
         public ICommand StateChangedCommand { get; private set; }
 
-        public ObservableCollection<SampleModel> SampleItems { get; private set; } = new ObservableCollection<SampleModel>();
+        public ObservableCollection<TriggeredEvent> SampleItems { get; private set; } = new ObservableCollection<TriggeredEvent>();
 
         public MasterDetailViewModel()
         {
@@ -50,6 +56,7 @@ namespace RidoShop.Client.ViewModels
             {
                 SampleItems.Add(item);
             }
+            TotalItems = SampleItems.Count().ToString();
             Selected = SampleItems.First();
         }
 
@@ -60,7 +67,7 @@ namespace RidoShop.Client.ViewModels
 
         private void OnItemClick(ItemClickEventArgs args)
         {
-            SampleModel item = args?.ClickedItem as SampleModel;
+            TriggeredEvent item = args?.ClickedItem as TriggeredEvent;
             if (item != null)
             {
                 if (_currentState.Name == NarrowStateName)

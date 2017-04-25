@@ -1,6 +1,5 @@
-using RidoShop.Client.Models;
 using RidoShop.Client.ViewModels;
-
+using ShopEvents.Models;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
@@ -17,7 +16,7 @@ namespace RidoShop.Client.Views
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            ViewModel.Item = e.Parameter as SampleModel;
+            ViewModel.Item = e.Parameter as TriggeredEvent;
         }
     }
 }
