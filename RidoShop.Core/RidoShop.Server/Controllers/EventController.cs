@@ -8,25 +8,26 @@ using Microsoft.AspNetCore.Mvc;
 using RidoShop.Server;
 using ShopEvents.Models;
 using Microsoft.Azure.NotificationHubs;
+using Microsoft.Extensions.Options;
 
 namespace EventApi.Controllers
 {
     [Route("api/[controller]")]
     public class EventController : Controller
     {
+
+        private readonly AppConfig config;
+        private readonly TriggeredEventRepository repository;
+
+        public EventController(IOptions<AppConfig> optionsAccesor)
+        {
+            config = optionsAccesor.Value;
+            repository = new TriggeredEventRepository(new Uri(config.DocDb.Uri),config.DocDb.Key);
+        }
+
+
         // URI for docDB service
-        private readonly static string endpointUri = "https://ridoshopdb.documents.azure.com:443/";// Keys.DocDbUri;
 
-        // Defines the exact pointer to the document used for this program
-        private readonly string databaseName = "";//  Keys.DocDbName;
-        private readonly string collectionName = "";// Keys.DocDbCollectionName;
-        private readonly string documentName = "";// Keys.DocDbDocName;
-
-        private readonly string docDbKey = "";//Keys.DocDbKey;
-
-        private readonly TriggeredEventRepository repository = new TriggeredEventRepository(
-            new Uri(endpointUri),
-            "20ySChTRW4mVpQEb5aP3Oy3Nxvxiph0HH0EoE6hDA0vRG7XPuwcPaIclOQX5Gmh15afj7nTcNxmAlAD0mxTOzw==");
 
         // GET: api/Event/5
         /// <summary>
@@ -61,12 +62,9 @@ namespace EventApi.Controllers
         {
             string windowsToastPayload;
             // Get the Notification Hubs credentials for the Mobile App.
-            string notificationHubName = "eventshub";//Keys.NhName;
-            string notificationHubConnection = "Endpoint=sb://photoseventsnh.servicebus.windows.net/;SharedAccessKeyName=DefaultFullSharedAccessSignature;SharedAccessKey=DniAXgy7XXHaTesc7/jul4Hp0xF6dy8u0p5dKjFwAso=";//Keys.NhFullConnection;
-
             // Create the notification hub client.
             var hub = NotificationHubClient
-                .CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
+                .CreateClientFromConnectionString(config.Notifications.FullListener, config.Notifications.HubName);
 
             // Define a WNS payload
             if (eventType == true)
