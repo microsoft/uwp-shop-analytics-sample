@@ -11,10 +11,11 @@ using Microsoft.Azure.NotificationHubs;
 
 namespace EventApi.Controllers
 {
+    [Route("api/[controller]")]
     public class EventController : Controller
     {
         // URI for docDB service
-        private readonly string endpointUri = "";// Keys.DocDbUri;
+        private readonly static string endpointUri = "https://ridoshopdb.documents.azure.com:443/";// Keys.DocDbUri;
 
         // Defines the exact pointer to the document used for this program
         private readonly string databaseName = "";//  Keys.DocDbName;
@@ -24,8 +25,8 @@ namespace EventApi.Controllers
         private readonly string docDbKey = "";//Keys.DocDbKey;
 
         private readonly TriggeredEventRepository repository = new TriggeredEventRepository(
-            new Uri(""), 
-            "");
+            new Uri(endpointUri),
+            "20ySChTRW4mVpQEb5aP3Oy3Nxvxiph0HH0EoE6hDA0vRG7XPuwcPaIclOQX5Gmh15afj7nTcNxmAlAD0mxTOzw==");
 
         // GET: api/Event/5
         /// <summary>
@@ -60,8 +61,8 @@ namespace EventApi.Controllers
         {
             string windowsToastPayload;
             // Get the Notification Hubs credentials for the Mobile App.
-            string notificationHubName = "";//Keys.NhName;
-            string notificationHubConnection = "";//Keys.NhFullConnection;
+            string notificationHubName = "eventshub";//Keys.NhName;
+            string notificationHubConnection = "Endpoint=sb://photoseventsnh.servicebus.windows.net/;SharedAccessKeyName=DefaultFullSharedAccessSignature;SharedAccessKey=DniAXgy7XXHaTesc7/jul4Hp0xF6dy8u0p5dKjFwAso=";//Keys.NhFullConnection;
 
             // Create the notification hub client.
             var hub = NotificationHubClient
