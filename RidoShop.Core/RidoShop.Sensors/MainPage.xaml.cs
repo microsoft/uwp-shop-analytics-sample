@@ -200,7 +200,7 @@ namespace RidoShop.Sensors
             HttpResponseMessage message = await http
               .PostAsync(new Uri(baseuri + "/api/event"),
                   new HttpStringContent(newEvent.ToJson(),
-                          UnicodeEncoding.Utf8, "application/json"));
+                          Windows.Storage.Streams.UnicodeEncoding.Utf8, "application/json"));
         }
 
 
