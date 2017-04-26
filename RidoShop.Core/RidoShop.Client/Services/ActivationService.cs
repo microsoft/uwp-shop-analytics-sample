@@ -37,7 +37,7 @@ namespace RidoShop.Client.Services
 //#if DEBUG
                 if (System.Diagnostics.Debugger.IsAttached)
                 {
-                    _app.DebugSettings.EnableFrameRateCounter = true;
+                    _app.DebugSettings.EnableFrameRateCounter = false;
                 }
 //#endif
 
@@ -95,7 +95,7 @@ namespace RidoShop.Client.Services
             //  1. Go to the HubNotificationsService class, in the InitializeAsync() method, provide the Hub Name and DefaultListenSharedAccessSignature.
             //  2. Uncomment the following line (an exception is thrown if it is executed before the previous information is provided).
 
-            //Singleton<HubNotificationsService>.Instance.InitializeAsync();
+            Singleton<HubNotificationsService>.Instance.InitializeAsync();
             Services.ThemeSelectorService.SetRequestedTheme();
             await Task.CompletedTask;
         }

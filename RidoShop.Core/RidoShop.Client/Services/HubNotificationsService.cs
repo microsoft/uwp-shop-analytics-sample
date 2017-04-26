@@ -7,6 +7,9 @@ using RidoShop.Client.Activation;
 
 using Windows.ApplicationModel.Activation;
 using Windows.Networking.PushNotifications;
+using Windows.ApplicationModel.Core;
+using RidoShop.Client.ViewModels;
+using Windows.UI.Core;
 
 namespace RidoShop.Client.Services
 {
@@ -18,9 +21,9 @@ namespace RidoShop.Client.Services
             // Documentation: https://docs.microsoft.com/azure/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push
 
             // Use your Hub Name here
-            var hubName = "";
+            var hubName = "eventshub";
             // Use your DefaultListenSharedAccessSignature here
-            var accessSignature = "";
+            var accessSignature = AppConfig.PushKey;
 
             var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
 
@@ -33,6 +36,16 @@ namespace RidoShop.Client.Services
 
             // You can also send push notifications from Windows Developer Center targeting your app consumers
             // Documentation: https://docs.microsoft.com/windows/uwp/publish/send-push-notifications-to-your-apps-customers
+            channel.PushNotificationReceived += Channel_PushNotificationReceived;
+        }
+
+        private async void Channel_PushNotificationReceived(PushNotificationChannel sender, PushNotificationReceivedEventArgs args)
+        {
+            await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
+            async () =>
+            {
+                await MainViewModel.Current.Initialize();
+            });
         }
 
         protected override async Task HandleInternalAsync(ToastNotificationActivatedEventArgs args)
