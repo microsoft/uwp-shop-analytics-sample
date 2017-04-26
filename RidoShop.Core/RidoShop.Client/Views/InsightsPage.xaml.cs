@@ -1,7 +1,7 @@
 using RidoShop.Client.ViewModels;
 
 using Windows.UI.Xaml.Controls;
-
+using Windows.UI.Xaml.Navigation;
 namespace RidoShop.Client.Views
 {
     public sealed partial class InsightsPage : Page
@@ -10,6 +10,11 @@ namespace RidoShop.Client.Views
         public InsightsPage()
         {
             InitializeComponent();
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            ViewModel.LoadData();
         }
     }
 }

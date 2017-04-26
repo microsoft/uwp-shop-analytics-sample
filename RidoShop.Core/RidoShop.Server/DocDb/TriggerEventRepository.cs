@@ -3,10 +3,8 @@ using Microsoft.Azure.Documents.Client;
 using ShopEvents.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
-using System.Web;
 
 namespace RidoShop.Server
 {

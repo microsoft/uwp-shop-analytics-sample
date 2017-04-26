@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:c="using:Telerik.UI.Xaml.Controls.Chart"
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -27,6 +28,33 @@
                     Place your content here.
                     -->
 
+                    <Border Margin="30" Padding="20">
+                        <c:RadCartesianChart x:Name="barSeries" PaletteName="DefaultLight">
+                            <c:RadCartesianChart.VerticalAxis>
+                                <c:LinearAxis>
+                                    <c:LinearAxis.LabelTemplate>
+                                        <DataTemplate>
+                                            <Border BorderBrush="White" BorderThickness="2">
+                                                <TextBlock Text="{Binding}" Margin="3" />
+                                            </Border>
+                                        </DataTemplate>
+                                    </c:LinearAxis.LabelTemplate>
+                                </c:LinearAxis>
+                            </c:RadCartesianChart.VerticalAxis>
+                            <c:RadCartesianChart.HorizontalAxis>
+                                <c:CategoricalAxis/>
+                            </c:RadCartesianChart.HorizontalAxis>
+
+                            <c:BarSeries ItemsSource="{x:Bind ViewModel.ByDayOfWeek}" PaletteMode="DataPoint">
+                                <c:BarSeries.CategoryBinding>
+                                    <c:PropertyNameDataPointBinding PropertyName="Week"/>
+                                </c:BarSeries.CategoryBinding>
+                                <c:BarSeries.ValueBinding>
+                                    <c:PropertyNameDataPointBinding PropertyName="WeekValue"/>
+                                </c:BarSeries.ValueBinding>
+                            </c:BarSeries>
+                        </c:RadCartesianChart>
+                    </Border>
                 </Grid>
             </PivotItem>
             
@@ -36,7 +64,33 @@
                     The SystemControlPageBackgroundChromeLowBrush background represents where you should place your content. 
                     Place your content here.
                     -->
+                    <Border Margin="30" Padding="20">
+                        <c:RadCartesianChart x:Name="barSeries2" PaletteName="DefaultLight">
+                            <c:RadCartesianChart.VerticalAxis>
+                                <c:LinearAxis>
+                                    <c:LinearAxis.LabelTemplate>
+                                        <DataTemplate>
+                                            <Border BorderBrush="White" BorderThickness="2">
+                                                <TextBlock Text="{Binding}" Margin="3" />
+                                            </Border>
+                                        </DataTemplate>
+                                    </c:LinearAxis.LabelTemplate>
+                                </c:LinearAxis>
+                            </c:RadCartesianChart.VerticalAxis>
+                            <c:RadCartesianChart.HorizontalAxis>
+                                <c:CategoricalAxis/>
+                            </c:RadCartesianChart.HorizontalAxis>
 
+                            <c:BarSeries ItemsSource="{x:Bind ViewModel.ByHour}" PaletteMode="DataPoint">
+                                <c:BarSeries.CategoryBinding>
+                                    <c:PropertyNameDataPointBinding PropertyName="Hour"/>
+                                </c:BarSeries.CategoryBinding>
+                                <c:BarSeries.ValueBinding>
+                                    <c:PropertyNameDataPointBinding PropertyName="HourValue"/>
+                                </c:BarSeries.ValueBinding>
+                            </c:BarSeries>
+                        </c:RadCartesianChart>
+                    </Border>
                 </Grid>
             </PivotItem>
         </Pivot>

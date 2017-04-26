@@ -120,14 +120,14 @@
   <data name="Main_Title.Text" xml:space="preserve">
     <value>Main</value>
   </data>
-  <data name="Insights_Pivot.Text" xml:space="preserve">  
+  <data name="Insights_Pivot.Text" xml:space="preserve">
     <value>Insights</value>
   </data>
-  <data name="Insights_PivotItem1.Header" xml:space="preserve">  
-    <value>Item 1</value>
+  <data name="Insights_PivotItem1.Header" xml:space="preserve">
+    <value>Weekly Analysis</value>
   </data>
   <data name="Insights_PivotItem2.Header" xml:space="preserve">
-    <value>Item 2</value>
+    <value>Hourly Analysis</value>
   </data>
   <data name="Settings_Title.Text" xml:space="preserve">
     <value>Settings</value>
@@ -135,25 +135,24 @@
   <data name="Settings_Theme.Text" xml:space="preserve">
     <value>Theme</value>
   </data>
-  <data name="Settings_Toggle.OnContent" xml:space="preserve">  
+  <data name="Settings_Toggle.OnContent" xml:space="preserve">
     <value>Light</value>
   </data>
-  <data name="Settings_Toggle.OffContent" xml:space="preserve">    
+  <data name="Settings_Toggle.OffContent" xml:space="preserve">
     <value>Dark</value>
   </data>
-  <data name="Settings_About.Text" xml:space="preserve">    
+  <data name="Settings_About.Text" xml:space="preserve">
     <value>About this application</value>
   </data>
-  <data name="Settings_AboutDescription.Text" xml:space="preserve">    
+  <data name="Settings_AboutDescription.Text" xml:space="preserve">
     <value>Lorem ipsum dolor sit</value>
   </data>
-  <data name="Settings_PrivacyTermsLink.Content" xml:space="preserve">    
+  <data name="Settings_PrivacyTermsLink.Content" xml:space="preserve">
     <value>Privacy Terms</value>
   </data>
-  <data name="Settings_PrivacyTermsLink.NavigateUri" xml:space="preserve">  
+  <data name="Settings_PrivacyTermsLink.NavigateUri" xml:space="preserve">
     <value>https://YourPrivacyUrlGoesHere/</value>
   </data>
-  NavigateUri
   <data name="Shell_Main" xml:space="preserve">
     <value>Main</value>
   </data>
