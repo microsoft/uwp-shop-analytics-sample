@@ -45,26 +45,26 @@ namespace RidoShop.Client.BackendServices
     {
         
         static HttpClient http = new HttpClient() { BaseAddress = new Uri(AppConfig.RidoShopServerUrl) };
-        
+
         public static async Task<IEnumerable<ShopSensorEvent>> GetAllEvents()
         {
             var response = await http.GetAsync("api/ShopSensor");
             var content = await response.Content.ReadAsStringAsync();
-            return ShopSensorEvent.FromJson(content);
+            return JsonConvert.DeserializeObject<IEnumerable<ShopSensorEvent>>(content);
         }
 
         public static async Task<IEnumerable<DayStats>> GetWeeklyData()
         {
             var response = await http.GetAsync("api/ShopSensor/ByDay");
             var content = await response.Content.ReadAsStringAsync();
-            return DayStats.FromJson(content);
+            return JsonConvert.DeserializeObject<IEnumerable<DayStats>>(content);
         }
 
         public static async Task<IEnumerable<HourStats>> GetHourlyData()
         {
             var response = await http.GetAsync("api/ShopSensor/ByHour");
             var content = await response.Content.ReadAsStringAsync();
-            return HourStats.FromJson(content);
+            return JsonConvert.DeserializeObject<IEnumerable<HourStats>>(content);
         }
     }
 }
