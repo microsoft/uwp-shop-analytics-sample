@@ -28,19 +28,18 @@ namespace RidoShop.Tests
                             Encoding.UTF8, "application/json"));
         }
 
-        public async Task<IList<ShopSensorEvent>> ReadAllEvents()
+        public async Task<IEnumerable<ShopSensorEvent>> ReadAllEvents()
         {
             var response = await http.GetAsync("api/ShopSensor?DaysSince=100");
             var content = await response.Content.ReadAsStringAsync();
             return ShopSensorEvent.FromJson(content);
         }
 
-        public async Task<IList<ShopSensorEvent>> ReadTodayEvents()
+        public async Task<IEnumerable<ShopSensorEvent>> ReadTodayEvents()
         {            
             return ShopSensorEvent.FromJson(
-                await (
-                    await http.GetAsync("api/ShopSensor?DaysSince=2"))
-                .Content.ReadAsStringAsync());
+                    await (await http.GetAsync("api/ShopSensor?DaysSince=2"))
+                    .Content.ReadAsStringAsync());
         }
     }
 }

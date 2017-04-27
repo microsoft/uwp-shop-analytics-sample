@@ -50,21 +50,21 @@ namespace RidoShop.Client.BackendServices
         {
             var response = await http.GetAsync("api/ShopSensor");
             var content = await response.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<IEnumerable<ShopSensorEvent>>(content);
+            return ShopSensorEvent.FromJson(content);
         }
 
         public static async Task<IEnumerable<DayStats>> GetWeeklyData()
         {
             var response = await http.GetAsync("api/ShopSensor/ByDay");
             var content = await response.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<IEnumerable<DayStats>>(content);
+            return DayStats.FromJson(content);
         }
 
         public static async Task<IEnumerable<HourStats>> GetHourlyData()
         {
             var response = await http.GetAsync("api/ShopSensor/ByHour");
             var content = await response.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<IEnumerable<HourStats>>(content);
+            return HourStats.FromJson(content);
         }
     }
 }

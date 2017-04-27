@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
 
@@ -15,7 +16,7 @@ namespace RidoShop.Tests
             var all = await c.ReadAllEvents();            
             var all2 = await c.ReadTodayEvents();
             
-            Assert.True(all2.Count < all.Count);
+            Assert.True(all2.Count() < all.Count());
         }
 
         [Fact]
@@ -27,7 +28,7 @@ namespace RidoShop.Tests
             await c.CreateEvent(false);
             var all2 = await c.ReadTodayEvents();
 
-            Assert.True(all2.Count > all.Count);
+            Assert.True(all2.Count() > all.Count());
         }
     }
 }

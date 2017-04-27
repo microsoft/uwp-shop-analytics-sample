@@ -15,12 +15,40 @@ namespace RidoShop.Model
             return Serializer<ShopSensorEvent>.ToJson(this); 
         }
 
-        public static IList<ShopSensorEvent> FromJson(string json)
+        public static IEnumerable<ShopSensorEvent> FromJson(string json)
         {
-            return Serializer<IList<ShopSensorEvent>>.FromJson(json);
+            return Serializer<IEnumerable<ShopSensorEvent>>.FromJson(json);
+        }
+    }
+
+
+    public partial class DayStats
+    {
+        public string ToJson()
+        {
+            return Serializer<DayStats>.ToJson(this);
         }
 
+        public static IEnumerable<DayStats> FromJson(string json)
+        {
+            return Serializer<IEnumerable<DayStats>>.FromJson(json);
+        }
     }
+
+
+    public partial class HourStats
+    {
+        public string ToJson()
+        {
+            return Serializer<HourStats>.ToJson(this);
+        }
+
+        public static IEnumerable<HourStats> FromJson(string json)
+        {
+            return Serializer<IEnumerable<HourStats>>.FromJson(json);
+        }
+    }
+
 
     internal static class Serializer<T>
     {

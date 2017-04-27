@@ -10,12 +10,12 @@ namespace RidoShop.Model
         public bool EventType { get; set; }
         public DateTime EventTime { get; set; }
     }
-    public class DayStats
+    public partial class DayStats
     {
         public DayOfWeek Day { get; set; }
         public int Total { get; set; }
     }
-    public class HourStats
+    public partial class HourStats
     {
         public int Hour { get; set; }
         public int Total { get; set; }
