@@ -32,7 +32,7 @@ namespace RidoShop.Server.Controllers
         }
 
         [HttpPost]
-        public async Task<HttpResponseMessage> Post(ShopSensorEvent newEvent)
+        public async Task<HttpResponseMessage> Post([FromBody]ShopSensorEvent newEvent)
         {
             await DocDBRepository<ShopSensorEvent>.CreateItemAsync(newEvent);
 

@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Runtime.Serialization;
-using System.Runtime.Serialization.Json;
 
 namespace RidoShop.Model
 {
@@ -8,6 +6,7 @@ namespace RidoShop.Model
     {
         public string id { get; set; }
         public bool EventType { get; set; }
+        
         public DateTime EventTime { get; set; }
     }
     public partial class DayStats

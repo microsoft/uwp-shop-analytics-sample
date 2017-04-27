@@ -11,13 +11,14 @@ namespace RidoShop.Tests
     {
 
         HttpClient http = new HttpClient() { BaseAddress = new Uri("http://ridoshopserver.azurewebsites.net") };
+        
 
         public async Task CreateEvent(bool eventType)
         {
             var newEvent = new ShopSensorEvent
             {
                 EventType = eventType,
-                EventTime = DateTime.Now.AddDays(-1)
+                EventTime = DateTime.Now.AddDays(-2)
             };
 
             var json = newEvent.ToJson();

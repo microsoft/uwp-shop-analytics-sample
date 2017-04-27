@@ -6,6 +6,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Controllers\EventController.cs" />
+    <Compile Remove="DocDb\TriggerEventRepository.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="wwwroot\" />
   </ItemGroup>
   <ItemGroup>
@@ -20,8 +25,11 @@
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.0" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Controllers\EventController.cs" />
+    <None Include="DocDb\TriggerEventRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\CORE\RidoShop.Model\RidoShop.Model.csproj" />
-    <ProjectReference Include="..\ShopEvents\ShopEvents.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,6 +1,5 @@
-﻿using ShopEvents.Models;
+﻿using RidoShop.Model;
 using System;
-using System.Text;
 using Windows.Devices.Gpio;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -190,7 +189,7 @@ namespace RidoShop.Sensors
             Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, 
                 () => GpioStatus.Text = eventType.ToString());
 
-            var newEvent = new TriggeredEvent
+            var newEvent = new ShopSensorEvent
             {
                 EventType = eventType,
                 EventTime = DateTime.Now
@@ -198,7 +197,7 @@ namespace RidoShop.Sensors
 
             HttpClient http = new HttpClient();// { BaseAddress = new Uri(baseuri) };
             HttpResponseMessage message = await http
-              .PostAsync(new Uri(baseuri + "/api/event"),
+              .PostAsync(new Uri(baseuri + "/api/ShopSensor"),
                   new HttpStringContent(newEvent.ToJson(),
                           Windows.Storage.Streams.UnicodeEncoding.Utf8, "application/json"));
         }
@@ -209,12 +208,12 @@ namespace RidoShop.Sensors
         /// </summary>
         private void EnterButton_Click(object sender, RoutedEventArgs e)
         {
-            CreateEvent(true);
+            CreateEvent(false);
         }
 
         private void ExitButton_Click(object sender, RoutedEventArgs e)
         {
-            CreateEvent(false);
+            CreateEvent(true);
         }
     }
 }

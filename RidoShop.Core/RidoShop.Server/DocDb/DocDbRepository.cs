@@ -11,15 +11,19 @@ namespace RidoShop.Server
 {
     public static class DocDBRepository<T> where T : class
     {
-        private static readonly string DatabaseId = "MyShopDB";
-        private static readonly string CollectionId = "shopEvents";
+        private static readonly string DatabaseId = "ShopAnalyticsDB";
+        private static readonly string CollectionId = "SensorEvents";
         private static DocumentClient client;
-        
+        private static bool initialized = false;
         public static void Initialize(string docDbUrl, string key)
         {
             client = new DocumentClient(new Uri(docDbUrl), key);
-            CreateDatabaseIfNotExistsAsync().Wait();
-            CreateCollectionIfNotExistsAsync().Wait();
+            if (!initialized)
+            {
+                CreateDatabaseIfNotExistsAsync().Wait();
+                CreateCollectionIfNotExistsAsync().Wait();
+                initialized = true;
+            }
         }
 
         public static async Task<IEnumerable<T>> GetItemsAsync(Expression<Func<T, bool>> predicate)
@@ -78,7 +82,8 @@ namespace RidoShop.Server
         {
             try
             {
-                await client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri(DatabaseId, CollectionId));
+                await client.ReadDocumentCollectionAsync(
+                    UriFactory.CreateDocumentCollectionUri(DatabaseId, CollectionId));
             }
             catch (DocumentClientException e)
             {
@@ -86,8 +91,13 @@ namespace RidoShop.Server
                 {
                     await client.CreateDocumentCollectionAsync(
                         UriFactory.CreateDatabaseUri(DatabaseId),
-                        new DocumentCollection { Id = CollectionId },
-                        new RequestOptions { OfferThroughput = 1000 });
+                        new DocumentCollection {
+                                Id = CollectionId ,
+                                IndexingPolicy = new IndexingPolicy(
+                                    new RangeIndex(DataType.String) {
+                                        Precision = -1 })
+                                    },
+                        new RequestOptions { OfferThroughput = 400 });
                 }
                 else
                 {
