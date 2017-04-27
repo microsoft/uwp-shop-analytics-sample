@@ -53,10 +53,7 @@ namespace RidoShop.Server
                     UriFactory.CreateDocumentCollectionUri(DatabaseId, CollectionId))
                         .Where(predicate).CountAsync<T>();
         }
-
         
-
-
         #region Initialize
 
         private static async Task CreateDatabaseIfNotExistsAsync()

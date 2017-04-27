@@ -26,10 +26,32 @@
             Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
             <!--The SystemControlPageBackgroundChromeLowBrush background represents where you should place your content. 
                 Place your content here.-->
-            <StackPanel>
-                <TextBlock Text="Number of Events" />
-                <TextBlock Text="{x:Bind ViewModel.NumEvents, Mode=OneWay}" FontSize="33" />
-                <ListView ItemsSource="{x:Bind ViewModel.ShopEvents, Mode=OneWay}" >
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Vertical">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="Currrent People in Store:" 
+                                   FontSize="15" 
+                                   TextWrapping="WrapWholeWords" 
+                                   Margin="10,110,0,00" 
+                                   Canvas.ZIndex="1" Grid.Row="0" Foreground="White" 
+                                   Width="110"/>
+                        <TextBlock Text="{x:Bind ViewModel.PeopleInStore, Mode=OneWay}" 
+                                   FontSize="40" 
+                                   Margin="30,170,0,00" 
+                                   Canvas.ZIndex="1" 
+                                   Grid.Row="0" 
+                                   Foreground="White" 
+                                   Width="50"/>
+                        <Image Source="../Views/StoreFrontImage.png" Canvas.ZIndex="0" Grid.Row="0"/>
+                    </Grid>
+                    <TextBlock Text="Last sensor activity:" />
+                    <TextBlock Text="{x:Bind ViewModel.TimeIdle, Mode=OneWay}" FontSize="20" />
+                </StackPanel>
+                
+                <!--<ListView ItemsSource="{x:Bind ViewModel.ShopEvents, Mode=OneWay}" >
                     <ListView.ItemTemplate>
                         <DataTemplate x:DataType="model:ShopSensorEvent">
                             <StackPanel>
@@ -38,8 +60,9 @@
                             </StackPanel>
                         </DataTemplate>
                     </ListView.ItemTemplate>
-                </ListView>
+                </ListView>-->
             </StackPanel>
+            
         </Grid>
     
         <!--  Adaptive triggers  -->

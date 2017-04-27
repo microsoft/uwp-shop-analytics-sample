@@ -49,6 +49,16 @@ namespace RidoShop.Server.Controllers
                 .GetNumEvents(s => s.EventTime > DateTime.Now.AddDays(daysSince*-1));
         }
 
+        [HttpGet("last")]
+        public async Task<DateTime> GetLast(int daysSince = 30)
+        {
+            var events =  await DocDBRepository<ShopSensorEvent>
+                .GetItemsAsync(s => s.EventTime > DateTime.Now.AddDays(daysSince * -1));
+
+            var last = events.OrderByDescending(e => e.EventTime).FirstOrDefault();
+            return last.EventTime;
+        }
+        
         [HttpGet("ByDay")]
         public  async Task<IEnumerable<DayStats>> GetEventsByDayOfWeek()
         {
