@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using ShopEvents.Models;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
+using RidoShop.Model;
 
 namespace RidoShop.Client.ViewModels
 {
@@ -18,7 +19,7 @@ namespace RidoShop.Client.ViewModels
             Current = this;
         }
 
-        public ObservableCollection<TriggeredEvent> ShopEvents { get; private set; } = new ObservableCollection<TriggeredEvent>();
+        public ObservableCollection<ShopSensorEvent> ShopEvents { get; private set; } = new ObservableCollection<ShopSensorEvent>();
 
         private int _numEvents;
         public int NumEvents

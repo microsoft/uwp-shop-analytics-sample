@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:model="using:ShopEvents.Models"
+    xmlns:model="using:RidoShop.Model"
     mc:Ignorable="d">
     <Grid
         x:Name="ContentArea"
@@ -31,7 +31,7 @@
                 <TextBlock Text="{x:Bind ViewModel.NumEvents, Mode=OneWay}" FontSize="33" />
                 <ListView ItemsSource="{x:Bind ViewModel.ShopEvents, Mode=OneWay}" >
                     <ListView.ItemTemplate>
-                        <DataTemplate x:DataType="model:TriggeredEvent">
+                        <DataTemplate x:DataType="model:ShopSensorEvent">
                             <StackPanel>
                                 <TextBlock Text="{x:Bind EventType}" />
                                 <TextBlock Text="{x:Bind EventTime}" />
