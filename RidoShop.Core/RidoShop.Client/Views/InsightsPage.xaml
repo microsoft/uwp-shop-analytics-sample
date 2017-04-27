@@ -47,10 +47,10 @@
 
                             <c:BarSeries ItemsSource="{x:Bind ViewModel.ByDayOfWeek}" PaletteMode="DataPoint">
                                 <c:BarSeries.CategoryBinding>
-                                    <c:PropertyNameDataPointBinding PropertyName="Week"/>
+                                    <c:PropertyNameDataPointBinding PropertyName="Day"/>
                                 </c:BarSeries.CategoryBinding>
                                 <c:BarSeries.ValueBinding>
-                                    <c:PropertyNameDataPointBinding PropertyName="WeekValue"/>
+                                    <c:PropertyNameDataPointBinding PropertyName="Total"/>
                                 </c:BarSeries.ValueBinding>
                             </c:BarSeries>
                         </c:RadCartesianChart>
@@ -86,7 +86,7 @@
                                     <c:PropertyNameDataPointBinding PropertyName="Hour"/>
                                 </c:BarSeries.CategoryBinding>
                                 <c:BarSeries.ValueBinding>
-                                    <c:PropertyNameDataPointBinding PropertyName="HourValue"/>
+                                    <c:PropertyNameDataPointBinding PropertyName="Total"/>
                                 </c:BarSeries.ValueBinding>
                             </c:BarSeries>
                         </c:RadCartesianChart>

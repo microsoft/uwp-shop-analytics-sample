@@ -25,7 +25,7 @@ namespace RidoShop.Server.Controllers
         }
 
         [HttpGet]
-        public  async Task<IEnumerable<ShopSensorEvent>> Get(int daysSince = 2)
+        public  async Task<IEnumerable<ShopSensorEvent>> Get(int daysSince = 30)
         {
             return await DocDBRepository<ShopSensorEvent>
                 .GetItemsAsync(s => s.EventTime > DateTime.Now.AddDays(daysSince * -1));
@@ -43,7 +43,7 @@ namespace RidoShop.Server.Controllers
         }
 
         [HttpGet("total")]
-        public async Task<int> GetTotal(int daysSince = 2)
+        public async Task<int> GetTotal(int daysSince = 30)
         {
             return await DocDBRepository<ShopSensorEvent>
                 .GetNumEvents(s => s.EventTime > DateTime.Now.AddDays(daysSince*-1));
@@ -52,7 +52,7 @@ namespace RidoShop.Server.Controllers
         [HttpGet("ByDay")]
         public  async Task<IEnumerable<DayStats>> GetEventsByDayOfWeek()
         {
-            var all = await Get();
+            var all = await Get(30);
 
             var res = all.GroupBy
                 (
@@ -71,7 +71,7 @@ namespace RidoShop.Server.Controllers
         [HttpGet("ByHour")]
         public async Task<IEnumerable<HourStats>> GetEventsByHourOfDay()
         {
-            var all = await Get();
+            var all = await Get(30);
 
             var res = all.GroupBy
                 (

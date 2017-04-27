@@ -3,7 +3,6 @@ using System;
 using RidoShop.Client.Helpers;
 using RidoShop.Client.BackendServices;
 using System.Collections.Generic;
-using ShopEvents.Models;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using RidoShop.Model;

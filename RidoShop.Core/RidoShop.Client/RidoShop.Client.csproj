@@ -210,10 +210,6 @@
       <Project>{68B288E9-0004-487A-BEE2-7A2DA5E08058}</Project>
       <Name>RidoShop.Model</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ShopEvents\ShopEvents.csproj">
-      <Project>{ca315b3d-474f-41fe-880c-46382e2201b5}</Project>
-      <Name>ShopEvents</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
