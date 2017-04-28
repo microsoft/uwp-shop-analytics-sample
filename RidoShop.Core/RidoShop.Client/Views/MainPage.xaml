@@ -52,7 +52,7 @@
                     <TextBlock Text="{x:Bind ViewModel.TimeIdle, Mode=OneWay}" FontSize="20" />
                 </StackPanel>
                 
-                <ListView ItemsSource="{x:Bind ViewModel.ShopEvents, Mode=OneWay}" >
+                <!--<ListView ItemsSource="{x:Bind ViewModel.ShopEvents, Mode=OneWay}" >
                     <ListView.ItemTemplate>
                         <DataTemplate x:DataType="model:ShopSensorEvent">
                             <StackPanel>
@@ -61,7 +61,7 @@
                             </StackPanel>
                         </DataTemplate>
                     </ListView.ItemTemplate>
-                </ListView>
+                </ListView>-->
             </StackPanel>
             
         </Grid>

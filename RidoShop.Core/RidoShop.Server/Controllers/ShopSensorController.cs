@@ -99,6 +99,22 @@ namespace RidoShop.Server.Controllers
             return res2;
         }
 
+        [HttpGet("genfakedata")]
+        public async Task GenFakeData()
+        {
+
+            for (int i = 0; i < 20; i++)
+            {
+                var r = new Random(Environment.TickCount).Next(i);
+                var newEvent = new ShopSensorEvent()
+                {
+                    EventType = r % 2 == 0,
+                    EventTime = DateTime.Now.AddDays(r * -1).AddHours(r).AddMinutes(r * 2)
+                };
+                await DocDBRepository<ShopSensorEvent>.CreateItemAsync(newEvent);
+            }
+        }
+
 
         private async Task<NotificationOutcome> TriggerPushNotification(bool eventType)
         {
