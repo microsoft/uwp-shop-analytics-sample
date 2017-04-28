@@ -82,10 +82,10 @@ namespace RidoShop.Server.Controllers
         public async Task<IEnumerable<HourStats>> GetEventsByHourOfDay()
         {
             var all = await Get(30);
-
+            
             var res = all.GroupBy
                 (
-                    e => e.EventTime.Hour,
+                    e => e.EventTime.ToLocalTime().Hour,
                     (k, v) => new { hour = k, num = v.Count() }
                 );
 

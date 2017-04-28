@@ -108,7 +108,7 @@ namespace RidoShop.Sensors
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
-        private void EntrySensor_ValueChanged(GpioPin sender, GpioPinValueChangedEventArgs args)
+        private async void EntrySensor_ValueChanged(GpioPin sender, GpioPinValueChangedEventArgs args)
         {
             // To visualize that IR sensors are working, we will light up the entryLight whenever the beam is broken
             // When the beam is broken, args.Edge is FallingEdge; when it is unbroken it is RisingEdge
@@ -130,7 +130,7 @@ namespace RidoShop.Sensors
             }
 
             enter = true;
-            Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.High, () => timer.Start());
+            await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.High, () => timer.Start());
 
         }
 
@@ -139,7 +139,7 @@ namespace RidoShop.Sensors
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
-        private void ExitSensor_ValueChanged(GpioPin sender, GpioPinValueChangedEventArgs args)
+        private async void ExitSensor_ValueChanged(GpioPin sender, GpioPinValueChangedEventArgs args)
         {
             // To visualize that IR sensors are working, we will light up the entryLight whenever the beam is broken
             // When the beam is broken, args.Edge is FallingEdge; when it is unbroken it is RisingEdge
@@ -161,7 +161,7 @@ namespace RidoShop.Sensors
             }
 
             exit = true;
-            Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.High, () => timer.Start());
+            await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.High, () => timer.Start());
 
         }
 
@@ -186,7 +186,7 @@ namespace RidoShop.Sensors
         /// </summary>
         private async void CreateEvent(bool eventType)
         {
-            Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, 
+            await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, 
                 () => GpioStatus.Text = eventType.ToString());
 
             var newEvent = new ShopSensorEvent
@@ -208,12 +208,12 @@ namespace RidoShop.Sensors
         /// </summary>
         private void EnterButton_Click(object sender, RoutedEventArgs e)
         {
-            CreateEvent(false);
+            CreateEvent(true);
         }
 
         private void ExitButton_Click(object sender, RoutedEventArgs e)
         {
-            CreateEvent(true);
+            CreateEvent(false);
         }
     }
 }

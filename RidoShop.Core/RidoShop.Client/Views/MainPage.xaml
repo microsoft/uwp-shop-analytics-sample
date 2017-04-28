@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:model="using:RidoShop.Model"
     mc:Ignorable="d">
+
     <Grid
         x:Name="ContentArea"
         Margin="12,0,12,0">
@@ -51,7 +52,7 @@
                     <TextBlock Text="{x:Bind ViewModel.TimeIdle, Mode=OneWay}" FontSize="20" />
                 </StackPanel>
                 
-                <!--<ListView ItemsSource="{x:Bind ViewModel.ShopEvents, Mode=OneWay}" >
+                <ListView ItemsSource="{x:Bind ViewModel.ShopEvents, Mode=OneWay}" >
                     <ListView.ItemTemplate>
                         <DataTemplate x:DataType="model:ShopSensorEvent">
                             <StackPanel>
@@ -60,7 +61,7 @@
                             </StackPanel>
                         </DataTemplate>
                     </ListView.ItemTemplate>
-                </ListView>-->
+                </ListView>
             </StackPanel>
             
         </Grid>

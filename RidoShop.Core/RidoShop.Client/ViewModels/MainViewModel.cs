@@ -68,12 +68,12 @@ namespace RidoShop.Client.ViewModels
             var exits = todayEvents.Where(e => e.EventType == false).Count();
             PeopleInStore = enters - exits;
 
-            //ShopEvents.Clear();            
-            //foreach (var e in await ShopEventsProxy.GetAllEvents())
-            //{
-            //    ShopEvents.Add(e);
-            //}
-            
+            ShopEvents.Clear();
+            foreach (var e in await ShopEventsProxy.GetAllEvents())
+            {
+                ShopEvents.Add(e);
+            }
+
         }
     }
 }

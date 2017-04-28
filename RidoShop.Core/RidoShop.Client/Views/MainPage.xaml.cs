@@ -1,5 +1,5 @@
 using RidoShop.Client.ViewModels;
-
+using RidoShop.Model;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 namespace RidoShop.Client.Views

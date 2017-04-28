@@ -24,7 +24,7 @@ namespace RidoShop.Client.ViewModels
             var resWeekly = await ShopEventsProxy.GetWeeklyData();
 
             foreach (var item in resWeekly)
-            {
+            {                
                 ByDayOfWeek.Add(item);
             }
 
