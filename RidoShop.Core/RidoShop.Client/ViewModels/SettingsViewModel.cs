@@ -25,6 +25,8 @@ namespace RidoShop.Client.ViewModels
             set { Set(ref _appDescription, value); }
         }
 
+        public string ServiceUrl => AppConfig.RidoShopServerUrl;
+
         public ICommand SwitchThemeCommand { get; private set; }
 
         public SettingsViewModel()

@@ -8,6 +8,7 @@ using RidoShop.Model;
 using System.Net.Http;
 using Microsoft.Azure.NotificationHubs;
 using System.Net;
+using RidoShop.Server.Services;
 
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -36,7 +37,8 @@ namespace RidoShop.Server.Controllers
         {
             await DocDBRepository<ShopSensorEvent>.CreateItemAsync(newEvent);
 
-            var pushNotificationResponse = await TriggerPushNotification(newEvent.EventType);
+            var pushNotificationResponse = await PushNotificationService.TriggerPushNotification(newEvent.EventType, 
+                                                    config.Notifications.HubName, config.Notifications.FullListener);
 
             HttpResponseMessage res = new HttpResponseMessage(HttpStatusCode.OK);
             return res;
@@ -114,34 +116,5 @@ namespace RidoShop.Server.Controllers
                 await DocDBRepository<ShopSensorEvent>.CreateItemAsync(newEvent);
             }
         }
-
-
-        private async Task<NotificationOutcome> TriggerPushNotification(bool eventType)
-        {
-            string windowsToastPayload;
-            // Get the Notification Hubs credentials for the Mobile App.
-            // Create the notification hub client.
-            var hub = NotificationHubClient
-                .CreateClientFromConnectionString(config.Notifications.FullListener, config.Notifications.HubName);
-
-            // Define a WNS payload
-            if (eventType == true)
-            {
-                windowsToastPayload = @"<toast><visual><binding template=""ToastText01""><text id=""1"">"
-                                      + "Someone has entered the store" + @"</text></binding></visual></toast>";
-            }
-            else
-            {
-                windowsToastPayload = @"<toast><visual><binding template=""ToastText01""><text id=""1"">"
-                                      + "Someone has exited the store" + @"</text></binding></visual></toast>";
-            }
-
-            return await hub.SendWindowsNativeNotificationAsync(windowsToastPayload);
-        }
-
-
-        
-
-       
     }
 }

@@ -244,3 +244,5 @@ ModelManifest.xml
 # FAKE - F# Make
 .fake/
 /EventApi/Properties/PublishProfiles/ShopAnalyticsDoc - Web Deploy.pubxml
+
+**/*.pubxml

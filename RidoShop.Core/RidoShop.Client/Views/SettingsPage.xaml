@@ -43,6 +43,10 @@
                     x:Uid="Settings_About"
                     Style="{ThemeResource TitleTextBlockStyle}"/>
                 <TextBlock
+                    Text="{x:Bind ViewModel.ServiceUrl, Mode=OneWay}"
+                    Style="{ThemeResource SubtitleTextBlockStyle}"
+                    Margin="0,4,0,0"/>
+                <TextBlock
                     Text="{x:Bind ViewModel.AppDescription, Mode=OneWay}"
                     Style="{ThemeResource SubtitleTextBlockStyle}"
                     Margin="0,4,0,0"/>

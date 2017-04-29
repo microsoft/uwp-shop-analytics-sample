@@ -39,6 +39,7 @@ namespace RidoShop.Server
             loggerFactory.AddDebug();
 
             app.UseMvc();
+            app.UseStaticFiles();
         }
     }
 }
