@@ -15,8 +15,6 @@ namespace RidoShop.Tests
             await c.CreateEvent(true);
             var all = await c.ReadAllEvents();
             Console.WriteLine(all.Count().ToString());
-            
-            
         }
 
         [Fact]
